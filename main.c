@@ -27,6 +27,8 @@ int main(int ac, char **argv)
 			continue;
 
 		stat = _execute(comm, argv, idx);
+
+		freearray2D(comm);
 	}
 
 	return (0);

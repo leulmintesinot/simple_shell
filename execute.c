@@ -24,8 +24,9 @@ int _execute(char **comm, char **argv, int idx)
 		if (execve(comm[0], comm, environ) == -1)
 		{
 			free(full_cmd);
-			full_cmd = NULL;
+			/*full_cmd = NULL;*/
 			freearray2D(comm);
+			exit(EXIT_FAILURE);
 		}
 
 	
@@ -33,6 +34,7 @@ int _execute(char **comm, char **argv, int idx)
 	else
 	{
 		waitpid(child, &stat, 0);
+		free(full_cmd);
 		freearray2D(comm);
 	}
 	return (WEXITSTATUS(stat));

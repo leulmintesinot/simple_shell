@@ -15,10 +15,11 @@ char *read_line(void)
 	n = getline(&line, &len, stdin);
 	if (n == -1)
 	{
+		free(line);
 		return (NULL);
 	}
 
-	free(line);
+	/*free(line);*/
 
 	return (line);
 }

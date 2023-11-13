@@ -38,7 +38,8 @@ char *_getpath(char *comm)
 				free(path_env);
 				return (full_cmd);
 			}
-			free(full_cmd), full_cmd = NULL;
+			free(full_cmd);
+			/*full_cmd = NULL;*/
 
 			dir = strtok(NULL, ":");
 		}
