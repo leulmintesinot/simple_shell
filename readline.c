@@ -18,5 +18,7 @@ char *read_line(void)
 		return (NULL);
 	}
 
+	free(line);
+
 	return (line);
 }

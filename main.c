@@ -8,9 +8,8 @@
 int main(int ac, char **argv)
 {
 	char *line = NULL, **comm = NULL;
-	int stat = 0;
+	int stat = 0, idx = 0;
 	(void) ac;
-	(void) argv;
 
 	while (1)
 	{
@@ -22,15 +21,12 @@ int main(int ac, char **argv)
 			return (stat);
 		}
 
-		
-
-
+		idx++;
 		comm = tokenizer(line);
 		if (!comm)
 			continue;
 
-
-		stat = _execute(comm, argv);
+		stat = _execute(comm, argv, idx);
 	}
 
 	return (0);

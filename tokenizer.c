@@ -27,7 +27,8 @@ char **tokenizer(char *line)
 		cpt++;
 		token = strtok(NULL, DELIM);
 	}
-	free(tmp), tmp = NULL;
+	free(tmp);
+	tmp = NULL;
 
 	comm = malloc(sizeof(char *) * (cpt + 1));
 	if (!comm)
@@ -36,6 +37,7 @@ char **tokenizer(char *line)
 		return(NULL);
 	}
 
+	tmp = _strdup(line);
 	token = strtok(line, DELIM);
 	while (token)
 	{

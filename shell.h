@@ -16,8 +16,14 @@ extern char **environ;
 
 char *read_line(void);
 char **tokenizer(char *line);
+int _execute(char **comm, char **argv, int idx);
+char *_getenv(char *var);
+char *_getpath(char *comm);
+
 void freearray2D(char **arr);
-int _execute(char **comm, char **argv);
+void print_error(char *name, char *cmd, int idx);
+char *_itoa(int n);
+void reverse_string(char *str, int len);
 
 char *strtok (char *__restrict __s, const char *__restrict __delim);
 char *_strdup(const char *str);
