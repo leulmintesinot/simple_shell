@@ -11,6 +11,12 @@ int _execute(char **comm, char **argv, int idx)
 	pid_t child;
 	int stat;
 
+	if (is_builtin(comm[0]))
+	{
+		handle_builtin(comm, argv, idx, stat);
+		return (0);
+	}
+
 	full_cmd = _getpath(comm[0]);
 	if (!full_cmd)
 	{

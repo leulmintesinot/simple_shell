@@ -14,6 +14,7 @@ int main(int ac, char **argv)
 	while (1)
 	{
 		line = read_line();
+		printf("PATH: %s\n", getenv("PATH"));
 		if (line == NULL)
 		{
 			if (isatty(STDIN_FILENO))
@@ -25,8 +26,10 @@ int main(int ac, char **argv)
 		comm = tokenizer(line);
 		if (!comm)
 			continue;
-
-		stat = _execute(comm, argv, idx);
+		if (is_builtin(comm[0]))
+			handle_builtin(comm, argv, stat, idx);
+		else
+			stat = _execute(comm, argv, idx);
 
 		freearray2D(comm);
 	}

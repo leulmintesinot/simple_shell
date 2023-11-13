@@ -20,6 +20,11 @@ int _execute(char **comm, char **argv, int idx);
 char *_getenv(char *var);
 char *_getpath(char *comm);
 
+int is_builtin(char *comm);
+void handle_builtin(char **comm, char **argv, int stat, int idx);
+void exit_shell(char **comm, int stat);
+void print_env(char **comm, int stat);
+
 void freearray2D(char **arr);
 void print_error(char *name, char *cmd, int idx);
 char *_itoa(int n);
